@@ -1,4 +1,9 @@
 easyvps
 =======
 
-easy safe to vps
+Easy to build vps.
+
+Easy to make vps safly.
+
+Content:
+
