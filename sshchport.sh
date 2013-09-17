@@ -30,3 +30,4 @@ echo "HostName github.com" >> $ROOTSSHPATH
 echo "Port 22" >> $ROOTSSHPATH
 
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+rm -rf /root/.ssh/id_rsa.pub
