@@ -20,6 +20,7 @@ sed "s/#PubkeyAuthentication/PubkeyAuthentication/g" -i $SSHDPATH
 sed "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" -i $SSHDPATH
 sed "s/#PasswordAuthentication yes/PasswordAuthentication no/g" -i $SSHDPATH
 sed "s/#PermitEmptyPasswords no/PermitEmptyPasswords no/g" -i $SSHDPATH
+echo "change to RSA key login success"
 
 service sshd restart >>sshsafe.log 2>&1
 echo "change ssh port success"
