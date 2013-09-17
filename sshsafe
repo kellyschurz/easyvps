@@ -6,8 +6,6 @@
 # Made : 2013.09.01
 # Support : Only CentOS 6.0+
 
-exec sh sshchport.sh
-
 spawn ssh-keygen -t rsa
 expect "save the key"
 send "\r"
@@ -16,3 +14,5 @@ send "\r"
 expect "same passphrase"
 send "\r"
 expect eof
+
+exec sh sshchport.sh
