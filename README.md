@@ -5,8 +5,8 @@ Easy to build vps.
 
 Easy to make vps safly.
 
-Content:
+Content : 
 
-baseenv:Build base environment.
+baseenv : Build base environment.
 
-sshsafe + sshchport.sh:Change the ssh port to 4399 and make it safly.
+sshsafe + sshchport.sh : Change the ssh port to 4399 and make it safly.
