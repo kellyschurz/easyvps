@@ -30,7 +30,5 @@ echo "HostName github.com" >> $ROOTSSHPATH
 echo "Port 22" >> $ROOTSSHPATH
 
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
-echo "you should copy the id_rsa"
-cat /root/.ssh/id_rsa
-rm -rf /root/.ssh/id_rsa
+echo "you should copy the id_rsa string from /root/.ssh/id_rsa"
 rm -rf /root/.ssh/id_rsa.pub
