@@ -11,8 +11,16 @@ ROOTSSHPATH=/root/.ssh/config
 
 sed -i '/Port 22/d' $SSHPATH >>sshsafe.log 2>&1
 echo "Port 4399" >> $SSHPATH
+
 sed -i '/Port 22/d' $SSHDPATH >>sshsafe.log 2>&1
 echo "Port 4399" >> $SSHDPATH
+
+sed "s/#RSAAuthentication/RSAAuthentication/g" -i $SSHDPATH
+sed "s/#PubkeyAuthentication/PubkeyAuthentication/g" -i $SSHDPATH
+sed "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" -i $SSHDPATH
+sed "s/#PasswordAuthentication yes/PasswordAuthentication no/g" -i $SSHDPATH
+sed "s/#PermitEmptyPasswords no/PermitEmptyPasswords no/g" -i $SSHDPATH
+
 service sshd restart >>sshsafe.log 2>&1
 echo "change ssh port success"
 
