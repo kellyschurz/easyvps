@@ -1,0 +1,62 @@
+#!/bin/bash
+# Script function : One click to make base environment.
+# Script version : 1.0
+# Author : yoo@yoo.hk
+# Made : 2013.09.01
+# Support : Only CentOS 6.0+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+LANG=C
+
+export PATH
+export LANG
+
+SYSLANGPATH=/etc/sysconfig/i18n
+sed "s/en_US/zh_CN/g" -i $SYSLANGPATH >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "change system language success"
+fi
+
+rm -rf /etc/localtime >>baseenv.log 2>&1
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "revise time success"
+fi
+
+yum -y install git >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+git config --global user.name "yoo"
+git config --global user.email "yoo@yoo.hk"
+echo "install and set git success"
+fi
+
+yum -y install expect >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install expect success"
+fi
+
+yum -y install wget >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install wget success"
+fi
+
+yum -y install zip >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install zip success"
+fi
+
+yum -y install unzip >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install unzip success"
+fi
+
+yum -y install vim >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install vim success"
+fi
+
+yum -y install man >>baseenv.log 2>&1
+if [ $? -eq 0 ];then
+echo "install man success"
+fi
+
+source /etc/sysconfig/i18n
