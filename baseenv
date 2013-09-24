@@ -12,7 +12,8 @@ export PATH
 export LANG
 
 SYSLANGPATH=/etc/sysconfig/i18n
-sed "s/en_US/zh_CN/g" -i $SYSLANGPATH >>baseenv.log 2>&1
+echo 'LANG="zh_CN.UTF-8"' >$SYSLANGPATH
+echo 'SYSFONT="latarcyrheb-sun16"' >>$SYSLANGPATH
 if [ $? -eq 0 ];then
 echo "change system language success"
 fi
