@@ -15,18 +15,14 @@ expect "same passphrase"
 send "\r"
 expect eof
 
-spawn ssh-keygen -t rsa -f id_rsa_github
-expect "save the key"
-send "\r"
+spawn ssh-keygen -t rsa -f /root/.ssh/id_rsa_github
 expect "passphrase"
 send "\r"
 expect "same passphrase"
 send "\r"
 expect eof
 
-spawn ssh-keygen -t rsa -f id_rsa_oschina
-expect "save the key"
-send "\r"
+spawn ssh-keygen -t rsa -f /root/.ssh/id_rsa_oschina
 expect "passphrase"
 send "\r"
 expect "same passphrase"
