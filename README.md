@@ -21,7 +21,7 @@ Content :
 
    |--Change your .ssh/config likes below about.
 
-      |--Host dig.yoo.hk
+         Host xxx.com
 
          IdentityFile ~/.ssh/id_rsa_xxx
 
