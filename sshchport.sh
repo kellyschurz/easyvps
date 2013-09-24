@@ -31,6 +31,8 @@ echo "IdentityFile /root/.ssh/id_rsa_github" >> $ROOTSSHPATH
 echo "User root" >> $ROOTSSHPATH
 echo "Port 22" >> $ROOTSSHPATH
 
+echo "" >> $ROOTSSHPATH
+
 echo "Host git.oschina.net" >> $ROOTSSHPATH
 echo "HostName git.oschina.net" >> $ROOTSSHPATH
 echo "IdentityFile /root/.ssh/id_rsa_oschina" >> $ROOTSSHPATH
