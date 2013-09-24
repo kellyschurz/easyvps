@@ -27,6 +27,14 @@ echo "change ssh port success"
 
 echo "Host github.com" >> $ROOTSSHPATH
 echo "HostName github.com" >> $ROOTSSHPATH
+echo "IdentityFile ~/.ssh/id_rsa_github" >> $ROOTSSHPATH
+echo "User root" >> $ROOTSSHPATH
+echo "Port 22" >> $ROOTSSHPATH
+
+echo "Host git.oschina.net" >> $ROOTSSHPATH
+echo "HostName git.oschina.net" >> $ROOTSSHPATH
+echo "IdentityFile ~/.ssh/id_rsa_oschina" >> $ROOTSSHPATH
+echo "User root" >> $ROOTSSHPATH
 echo "Port 22" >> $ROOTSSHPATH
 
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys

@@ -7,6 +7,14 @@ Easy to make vps safly.
 
 Content : 
 
-baseenv : Build base environment.
+1. baseenv : Build base environment.
 
-sshsafe + sshchport.sh : Change the ssh port to 4399 and make it safly.
+2. sshsafe (+ sshchport.sh) : 
+   |--Change the ssh port to 4399 and make it safly.
+   |--You should record the contents of id_rsa.
+   |--Check your local pc and add the id_rsa.
+   |--Rename id_rsa to id_rsa_xxx.
+   |--Change your .ssh/config likes below about.
+      |--Host dig.yoo.hk
+         IdentityFile ~/.ssh/id_rsa_xxx
+         User root
