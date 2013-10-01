@@ -16,6 +16,6 @@ service iptables save
 service iptables restart
 echo "kern.warning /var/log/iptables.log" >>/etc/rsyslog.conf
 echo "*/5  *  *  *  * root /root/easyvps/noddos.sh" >>/etc/crontab
-echo "*  */6  *  *  * root /root/easyvps/noddos.sh" >>/etc/crontab
+echo "*  */6  *  *  * root service iptables restart" >>/etc/crontab
 service iptables restart
 service crond restart
