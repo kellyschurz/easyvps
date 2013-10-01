@@ -51,4 +51,7 @@ do
 echo "$synreceived synreceived kill at `date`" >>/var/log/ddos
 done
 
+service iptables save
 rm -rf /tmp/dropip >/dev/null 2>&1 &
+rm -rf /var/log/iptables.log >/dev/null 2>&1 &
+service rsyslog restart >/dev/null 2>&1 &

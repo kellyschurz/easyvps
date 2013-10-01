@@ -14,8 +14,3 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -p icmp --icmp-type ping -j DROP
 service iptables save
 service iptables restart
-echo "kern.warning /var/log/iptables.log" >>/etc/rsyslog.conf
-echo "*/2  *  *  *  * root sh /root/easyvps/noddos.sh" >>/etc/crontab
-echo "*  */6  *  *  * root service iptables restart" >>/etc/crontab
-service iptables restart
-service crond restart
