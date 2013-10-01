@@ -16,7 +16,7 @@ do
 echo "$timewaitban timewaitban kill at `date`" >>/var/log/ddos
 done
 
-#ban established ddos > 200
+#ban established ddos
 netstat -an | grep ESTABLISHED | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>200) print $2}' >/tmp/dropip
 for established in $(cat /tmp/dropip)
 do
