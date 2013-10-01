@@ -16,14 +16,14 @@ echo "$pingban pingban kill at `date`" >>/var/log/ddos
 done
 
 #ban ddos
-netstat -an | grep TIME-WAIT | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>2500) print $2}' >/tmp/dropip
+netstat -an | grep TIME_WAIT | awk '{print $5}' | awk -F: '{print $4}' | sort | uniq -c | sort -rn | awk '{if ($1>2500) print $2}' >/tmp/dropip
 for timewaitban in $(cat /tmp/dropip)
 do
 /sbin/iptables -I INPUT -s $timewaitban -j DROP
 echo "$timewaitban timewaitban kill at `date`" >>/var/log/ddos
 done
 
-netstat -an | grep LAST-ACK | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>25) print $2}' >/tmp/dropip
+netstat -an | grep LAST_ACK | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>25) print $2}' >/tmp/dropip
 for lastack in $(cat /tmp/dropip)
 do
 /sbin/iptables -I INPUT -s $lastack -j DROP
@@ -44,7 +44,7 @@ do
 echo "$established established kill at `date`" >>/var/log/ddos
 done
 
-netstat -an | grep SYN-REC | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>100) print $2}' >/tmp/dropip
+netstat -an | grep SYN_REC | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | sort -rn | awk '{if ($1>100) print $2}' >/tmp/dropip
 for synreceived in $(cat /tmp/dropip)
 do
 /sbin/iptables -I INPUT -s $synreceived -j DROP
