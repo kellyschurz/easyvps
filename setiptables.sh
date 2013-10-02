@@ -11,7 +11,7 @@ LANG=C
 export PATH
 export LANG
 
-yum install -y iptables >>setiptables.log 2>&1
+yum install -y iptables >/dev/null 2>&1 &
 iptables -F
 iptables -X
 iptables -Z
@@ -24,5 +24,5 @@ iptables -A INPUT -p icmp --icmp-type ping -j LOG
 iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -p icmp --icmp-type ping -j DROP
-service iptables save
-service iptables restart
+service iptables save >/dev/null 2>&1 &
+service iptables restart >/dev/null 2>&1 &

@@ -14,5 +14,5 @@ export LANG
 echo "kern.warning /var/log/iptables.log" >>/etc/rsyslog.conf
 echo "*/10  *  *  *  * root sh /root/easyvps/noddos.sh" >>/etc/crontab
 echo "*  */6  *  *  * root sh /root/easyvps/setiptables.sh" >>/etc/crontab
-service iptables restart
-service crond restart
+service iptables restart >/dev/null 2>&1 &
+service crond restart >/dev/null 2>&1 &
