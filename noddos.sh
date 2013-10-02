@@ -20,8 +20,8 @@ function sedsomeip()
  sed -i '/0\.0\.0\.0/d' /tmp/dropip
 }
 
-#ban ping > 10
- cat /var/log/iptables.log | awk '{print $10}' | awk -F= '{print $2}' | sort | uniq -c | sort -rn | awk '{if ($1>10) print $2}' >/tmp/dropip
+#ban ping > 5
+ cat /var/log/iptables.log | awk '{print $10}' | awk -F= '{print $2}' | sort | uniq -c | sort -rn | awk '{if ($1>5) print $2}' >/tmp/dropip
 sedsomeip
 for pingban in $(cat /tmp/dropip)
 do
