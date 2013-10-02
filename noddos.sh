@@ -21,7 +21,7 @@ function sedsomeip()
 }
 
 #ban ping > 5
- cat /var/log/iptables.log | awk '{print $10}' | awk -F= '{print $2}' | sort | uniq -c | sort -rn | awk '{if ($1>5) print $2}' >/tmp/dropip
+cat /var/log/iptables.log | awk '{print $10}' | awk -F= '{print $2}' | sort | uniq -c | sort -rn | awk '{if ($1>5) print $2}' >/tmp/dropip
 sedsomeip
 for pingban in $(cat /tmp/dropip)
 do
@@ -68,7 +68,7 @@ done
 #echo "$fin fin kill at `date`" >>/var/log/ddos
 #done
 
-service iptables save
+service iptables save >/dev/null 2>&1 &
 rm -rf /tmp/dropip >/dev/null 2>&1 &
 rm -rf /var/log/iptables.log >/dev/null 2>&1 &
 service rsyslog restart >/dev/null 2>&1 &
