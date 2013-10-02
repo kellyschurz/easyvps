@@ -24,9 +24,9 @@ iptables -A INPUT -p icmp --icmp-type ping -j LOG
 iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -p icmp --icmp-type ping -j DROP
-iptables -A FORWARD -p icmp -m limit --limit 1/s --limit-burst 10 -j ACCEPT
-iptables -A FORWARD -f -m limit --limit 100/s --limit-burst 100 -j ACCEPT
-iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
-iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+iptables -A INPUT -p icmp -m limit --limit 1/s --limit-burst 10 -j ACCEPT
+iptables -A INPUT -f -m limit --limit 100/s --limit-burst 100 -j ACCEPT
+iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT
+iptables -A INPUT -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
 service iptables save >/dev/null 2>&1 &
 service iptables restart >/dev/null 2>&1 &
