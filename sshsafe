@@ -30,4 +30,3 @@ send "\r"
 expect eof
 
 exec sh sshchport.sh
-exec sh setiptables.sh
